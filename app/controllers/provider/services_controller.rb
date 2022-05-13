@@ -58,7 +58,9 @@ class Provider::ServicesController < ApplicationController
       :country, 
       :price, 
       :price_unit, 
-      :additional_charges
+      :additional_charges,
+      :lat,
+      :long
     )
   end
 
