@@ -10,7 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_13_115927) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_13_121415) do
+  create_table "services", force: :cascade do |t|
+    t.integer "provider_id", null: false
+    t.string "title", null: false
+    t.text "about"
+    t.string "address_line1"
+    t.string "address_line2"
+    t.string "city"
+    t.string "state"
+    t.string "postal_code"
+    t.string "country"
+    t.decimal "lat", precision: 10, scale: 6
+    t.decimal "long", precision: 10, scale: 6
+    t.float "price"
+    t.string "price_unit"
+    t.string "additional_charges"
+    t.integer "status", default: 0
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["provider_id"], name: "index_services_on_provider_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -37,4 +58,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_13_115927) do
     t.index ["unlock_token"], name: "index_users_on_unlock_token", unique: true
   end
 
+  add_foreign_key "services", "users", column: "provider_id"
 end
