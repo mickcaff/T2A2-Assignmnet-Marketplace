@@ -1,2 +1,5 @@
-<h1>Provider::Services#show</h1>
-<p>Find me in app/views/provider/services/show.html.erb</p>
+<h1><%= @service.title %></h1>
+
+<%= link_to "Edit", edit_provider_service_path(@service) %>
+
+<pre> <%= JSON.pretty_generate(@service.as_json) %> </pre>
