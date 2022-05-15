@@ -35,3 +35,6 @@
 /config/master.key
 
 ./app/views/layouts/application.html.erb
+
+/app/assets/builds/*
+!/app/assets/builds/.keep

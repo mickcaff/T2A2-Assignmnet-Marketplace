@@ -75,3 +75,5 @@ end
 gem "pg", "~> 1.3", :group => :production
 
 gem "devise", "~> 4.8"
+
+gem "tailwindcss-rails", "~> 2.0"
