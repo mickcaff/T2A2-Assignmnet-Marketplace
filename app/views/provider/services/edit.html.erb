@@ -1,3 +1,37 @@
 <h1>Edit your service</h1>
 
-<%= render 'form' %>
+<form action="<%= provider_service_path(@service) %>" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+    <input type="hidden" name="_method" value="PUT">
+
+    <label for="title">Title</label>
+    <input type="text" name="service[title]" id="title" value="<%= @service.title %>">
+
+    <label for="about">About</label>
+    <textarea id="about" name="service[about]"><%= @service.about %></textarea>
+
+    <label for="price">Price</label>
+    <input type="number" name="service[price]" id="price" value="<%= @service.price %>">
+
+    <label for="price_unit">Price Unit</label>
+    <input type="text" name="service[price_unit]" id="price_unit" value="<%= @service.price_unit %>">
+
+    <label for="additional_charges">Additional Charges</label>
+    <input type="text" name="service[additional_charges]" id="additional_charges" value="<%= @service.additional_charges %>">
+
+    <div data-controller="address" data-action="map-loaded@window->address#initGoogle">
+        <label for="address">Address</label>
+        <input type="text" id="addresses" data-address-target="input" autocomplete="off">
+
+        <input type="hidden" name="service[address_line1]" data-address-target="line1">
+        <input type="hidden" name="service[address_line2]" data-address-target="line2">
+        <input type="hidden" name="service[city]" data-address-target="city">
+        <input type="hidden" name="service[state]" data-address-target="state">
+        <input type="hidden" name="service[postal_code]" data-address-target="postal_code">
+        <input type="hidden" name="service[country]" data-address-target="country">
+        <input type="hidden" name="service[lat]" data-address-target="lat">
+        <input type="hidden" name="service[lng]" data-address-target="lng">
+    </div>
+
+    <input type="submit" value="Update service">
+</form>

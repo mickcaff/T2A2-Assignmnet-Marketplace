@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_13_121415) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_15_051551) do
   create_table "services", force: :cascade do |t|
     t.integer "provider_id", null: false
     t.string "title", null: false
@@ -22,7 +22,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_13_121415) do
     t.string "postal_code"
     t.string "country"
     t.decimal "lat", precision: 10, scale: 6
-    t.decimal "long", precision: 10, scale: 6
+    t.decimal "lng", precision: 10, scale: 6
     t.float "price"
     t.string "price_unit"
     t.string "additional_charges"
