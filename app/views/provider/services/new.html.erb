@@ -4,32 +4,32 @@
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" autocomplete="off">
 
     <div class="sm:col-span-6">
-        <label for="service_title" class="block text-sm font-medium text-gray-700">Title</label>
+        <label for="service_title" class="block m-1 text-sm font-medium text-gray-700">Title</label>
         <input type="text" name="service[title]" id="service_title" value="<%= @service.title %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
     </div>
 
     <div class="sm:col-span-6">
-        <label for="service_about" class="block text-sm font-medium text-gray-700">About</label>
+        <label for="service_about" class="block m-1 text-sm font-medium text-gray-700">About</label>
         <textarea id="service_about" name="service[about]" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md"><%= @service.about %></textarea>
     </div>
 
     <div class="inline-block sm:col-span-6">
-        <label for="service_price" class="block text-sm font-medium text-gray-700">Price</label>
+        <label for="service_price" class="block m-1 text-sm font-medium text-gray-700">Price</label>
         <input type="number" name="service[price]" id="service_price" value="<%= @service.price %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
     </div>
 
     <div class="inline-block sm:col-span-6">
-        <label for="service_price_unit" class="block text-sm font-medium text-gray-700">Price Unit</label>
+        <label for="service_price_unit" class="block m-1 text-sm font-medium text-gray-700">Price Unit</label>
         <input type="text" name="service[price_unit]" id="service_price_unit" value="<%= @service.price_unit %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
     </div>
 
     <div class="inline-block sm:col-span-6 w-3/5">
-        <label for="service_additional_charges" class="block text-sm font-medium text-gray-700">Additional Charges</label>
+        <label for="service_additional_charges" class="block m-1 text-sm font-medium text-gray-700">Additional Charges</label>
         <input type="text" name="service[additional_charges]" id="service_additional_charges" value="<%= @service.additional_charges %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
     </div>
 
     <div data-controller="address" data-action="map-loaded@window->address#initGoogle" class="sm:col-span-6">
-        <label for="service_address" class="block text-sm font-medium text-gray-700">Address</label>
+        <label for="service_address" class="block m-1 text-sm font-medium text-gray-700">Address</label>
         <input type="text" id="service_address" data-address-target="input" autocomplete="off" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
 
         <input type="hidden" name="service[address_line1]" data-address-target="line1">
@@ -42,65 +42,9 @@
         <input type="hidden" name="service[lng]" data-address-target="lng">
     </div>
 
-    <%# <div>
-        <label for="service_cover_image" class="block text-sm font-medium text-gray-700"> Cover photo </label>
-        <div class="mt-1 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-md">
-        <div class="space-y-1 text-center">
-            <svg class="mx-auto h-12 w-12 text-gray-400" stroke="currentColor" fill="none" viewBox="0 0 48 48" aria-hidden="true">
-            <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-            </svg>
-            <div class="flex text-sm text-gray-600">
-            <label for="service_cover_image" class="relative cursor-pointer bg-white rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-indigo-500">
-                <span>Upload a file</span>
-                <input id="service_cover_image" name="service[cover_image]" type="file" class="sr-only">
-            </label>
-            <p class="pl-1">or drag and drop</p>
-            </div>
-            <p class="text-xs text-gray-500">PNG, JPG, GIF up to 10MB</p>
-        </div>
-        </div>
-    </div> %>
-
     <div class="sm:col-span-6">
-        <label for="service_cover_image" class="block text-sm font-medium text-gray-700">Cover image</label>
-        <input type="file" name="service[cover_image]" id="service_cover_image">
+        <label for="service_cover_image" class="block m-1 text-sm font-medium text-gray-700">Cover image</label>
+        <input type="file" name="service[cover_image]" id="service_cover_image" class = "text-sm">
     </div>
     <input type="submit" value="Create service" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-</form>
-
-<%= form_with(model: [:provider, @service], data: {turbo: false}) do |f| %>
-    <fieldset>
-        <%= f.label :title %>
-        <%= f.text_field :title %>
-    </fieldset>
-    <fieldset>
-        <%= f.label :about %>
-        <%= f.text_area :about %>
-    </fieldset>
-        <fieldset class="mb-2">
-        <%= f.label :cover_image %>
-        <%= f.file_field :cover_image %>
-    </fieldset>
-    <fieldset>
-        <%= f.submit class: 'btn btn-primary btn-sm' %>
-    </fieldset>
-<% end %>
-
-<form data-turbo="false" enctype="multipart/form-data" action="/provider/services" accept-charset="UTF-8" method="post">
-<input type="hidden" name="authenticity_token" value="ijVnvJ757xHuJ6zZha-kchuAjaGvYegd7c0Eihbu3Trfudc7xXoZblIAe1xsEH24gLUNpzdcT5dkPnTZbENqew" autocomplete="off">
-    <fieldset>
-        <label for="service_title">Title</label>
-        <input type="text" name="service[title]" id="service_title">
-    </fieldset>
-    <fieldset>
-        <label for="service_about">About</label>
-        <textarea name="service[about]" id="service_about"></textarea>
-    </fieldset>
-        <fieldset class="mb-2">
-        <label for="service_cover_image">Cover image</label>
-        <input type="file" name="service[cover_image]" id="service_cover_image">
-    </fieldset>
-    <fieldset>
-        <input type="submit" name="commit" value="Create Service" class="btn btn-primary btn-sm" data-disable-with="Create Service">
-    </fieldset>
 </form>
