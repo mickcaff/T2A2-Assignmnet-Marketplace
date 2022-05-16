@@ -7,12 +7,13 @@ Rails.application.routes.draw do
     get "users", to: "devise/sessions#new"
   end
 
+  root to: "base_pages#home"
+
+  resources :services, only: [:index, :show]
+
   namespace :provider do
     resources :services
   end
-  
-  
-  root to: "base_pages#home"
   
   devise_for :users
 end

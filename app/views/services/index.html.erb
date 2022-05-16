@@ -1,4 +1,6 @@
-<div>
-  <h1 class="font-bold text-4xl">Services#index</h1>
-  <p>Find me in app/views/services/index.html.erb</p>
-</div>
+<h1 class="font-bold text-4xl">Services</h1>
+
+<% @services.each do |service| %>
+  <h5> <%= link_to service.title, service_path(service) %> </h5>
+  <p> <%= service.about %> </p>
+<% end %>
