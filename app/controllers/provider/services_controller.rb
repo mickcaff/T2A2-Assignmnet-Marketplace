@@ -40,7 +40,8 @@ class Provider::ServicesController < ApplicationController
 
   def destroy
     @service = current_user.services.find(params[:id])
-    @service.update(status: :archived)
+    @service.destroy
+    # @service.update(status: :archived)
     redirect_to provider_services_path
   end
 
@@ -56,6 +57,7 @@ class Provider::ServicesController < ApplicationController
       :state,
       :postal_code,
       :country, 
+      :cover_image,
       :price, 
       :price_unit, 
       :additional_charges,

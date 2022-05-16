@@ -6,4 +6,6 @@ class Service < ApplicationRecord
   enum :status, {draft: 0, published: 1, archived: 2}
 
   scope :published, -> { where(status: :published) }
+
+  has_one_attached :cover_image
 end
