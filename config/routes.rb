@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'services/index'
+  get 'services/show'
 
   devise_scope :user do
     # Redirests signing out users back to sign-in
