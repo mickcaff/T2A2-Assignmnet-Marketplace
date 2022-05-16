@@ -60,7 +60,8 @@ class Provider::ServicesController < ApplicationController
       :price_unit, 
       :additional_charges,
       :lat,
-      :lng
+      :lng,
+      :status
     )
   end
 

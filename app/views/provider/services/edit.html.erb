@@ -1,4 +1,4 @@
-<h1>Edit your service</h1>
+<h1 class="text-2xl mb-4 font-bold">Edit <%= @service.title%> </h1>
 
 <form action="<%= provider_service_path(@service) %>" method="post">
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
@@ -32,6 +32,13 @@
         <input type="hidden" name="service[lat]" data-address-target="lat">
         <input type="hidden" name="service[lng]" data-address-target="lng">
     </div>
+
+    <label for="status">Status</label>
+    <select name="service[status]">
+        <% Service.statuses.keys.each do |status| %>
+            <option <%= 'selected' if @service.status == status %>><%= status %></option>
+        <% end %>
+    </select>
 
     <input type="submit" value="Update service">
 </form>
