@@ -1,6 +1,8 @@
 class ServicesController < ApplicationController
+  include Pagy::Backend
+  
   def index
-    @services = Service.published
+    @pagy, @services = pagy(Service.published, items: 6)
   end
 
   def show

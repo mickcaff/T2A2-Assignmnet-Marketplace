@@ -1,5 +1,6 @@
 <h1 class="text-2xl mb-4 font-bold"><%= @service.title %></h1>
 
 <%= link_to "Edit", edit_provider_service_path(@service) %>
+<%= button_to "Delete", provider_service_path(@service), method: :delete %>
 
 <pre> <%= JSON.pretty_generate(@service.as_json) %> </pre>

@@ -1,6 +1,8 @@
 <h1 class="font-bold text-4xl">Services</h1>
 
+<%== pagy_nav(@pagy) %>
 <% @services.each do |service| %>
   <h5> <%= link_to service.title, service_path(service) %> </h5>
   <p> <%= service.about %> </p>
 <% end %>
+<%== pagy_nav(@pagy) %>
