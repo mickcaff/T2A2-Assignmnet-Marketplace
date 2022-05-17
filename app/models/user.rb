@@ -5,4 +5,5 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :services, foreign_key: :provider_id
+  has_many :comments
 end

@@ -9,7 +9,9 @@ Rails.application.routes.draw do
 
   root to: "base_pages#home"
 
-  resources :services, only: [:index, :show]
+  resources :services, only: [:index, :show] do 
+    resources :comments, only: [:create]
+  end
 
   namespace :provider do
     resources :services
