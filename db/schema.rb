@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_05_18_004246) do
+ActiveRecord::Schema[7.0].define(version: 2022_05_18_043600) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -87,6 +87,8 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_18_004246) do
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "category_id"
+    t.index ["category_id"], name: "index_services_on_category_id"
     t.index ["provider_id"], name: "index_services_on_provider_id"
   end
 
@@ -124,5 +126,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_18_004246) do
   add_foreign_key "conversations", "users", column: "sender_id"
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
+  add_foreign_key "services", "categories"
   add_foreign_key "services", "users", column: "provider_id"
 end

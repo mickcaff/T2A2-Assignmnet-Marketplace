@@ -84,3 +84,5 @@ gem "activestorage-cloudinary-service", "~> 0.2.3"
 gem "dotenv-rails", "~> 2.7"
 
 gem "pagy", "~> 5.10"
+
+gem "ransack", "~> 3.2"
