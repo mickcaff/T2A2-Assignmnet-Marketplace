@@ -5,7 +5,7 @@ class ServicesController < ApplicationController
     # @pagy, @services = pagy(Service.published, items: 6)
 
     @q = Service.ransack(params[:q])
-    @services = @q.result(distinct: true)
+    @pagy, @services = pagy(@q.result(distinct: true), items: 6)
   end
 
   def show

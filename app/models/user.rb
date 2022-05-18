@@ -6,4 +6,6 @@ class User < ApplicationRecord
 
   has_many :services, foreign_key: :provider_id
   has_many :comments
+
+  has_one :profile
 end
