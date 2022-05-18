@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  # get 'profile/edit'
   get 'messages/index'
   get 'services/index'
   get 'services/show'
@@ -22,5 +23,10 @@ Rails.application.routes.draw do
     resources :messages, only: [:index, :create]
   end
   
-  devise_for :users
+  resources :profile
+  
+  devise_for :users, controllers: {
+    registrations: 'users/registrations'
+  }
+  
 end
