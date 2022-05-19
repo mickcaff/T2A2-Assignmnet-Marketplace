@@ -12,7 +12,7 @@ export default class extends Controller {
   }
 
   initGoogle() {
-    const myLatLng = { lat: -29, lng: 139 };
+    const myLatLng = { lat: -29, lng: 135 };
     const map = new google.maps.Map(this.mapTarget, {
       zoom: 4,
       center: myLatLng,

@@ -8,14 +8,14 @@
 <%# <% end %> 
 
 
-<h1 class="font-bold text-4xl">Services</h1>
 
-<div class="mb-4">
+<h1 class="font-bold text-lg inline-block">Services</h1>
+<div class="ml-4 inline-block">
   <%== pagy_nav(@pagy) %>
 </div>
+<div data-controller="service-map" data-action="map-loaded@window->address#initGoogle" class="grid grid-cols-2 h-screen">
 
-<div data-controller="service-map" data-action="map-loaded@window->address#initGoogle" class="grid grid-cols-2 gap-4">
-  <ul role="list" data-service-map-target="services" class="col-span-1 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
+  <ul role="list" data-service-map-target="services" class="m-4 col-span-1 grid grid-cols-2 gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-4 xl:gap-x-8">
     <% @services.each do |service| %>
     <li class="relative" data-lat="<%= service.lat %>" data-title="<%= service.title %>" data-lng="<%= service.lng %>">
       <a href="<%= service_path(service) %>" class="group block w-full aspect-w-10 aspect-h-7 rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
@@ -29,7 +29,7 @@
     </li>
     <% end %>
   </ul>
-  <div data-service-map-target="map" class="cal-span-1 ">
+  <div data-service-map-target="map" class="col-span-1 h-full rounded-md">
   </div>
 </div>
 
