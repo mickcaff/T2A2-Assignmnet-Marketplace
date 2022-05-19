@@ -40,7 +40,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_18_073230) do
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text "content"
+    t.text "content", null: false
     t.integer "service_id", null: false
     t.integer "user_id", null: false
     t.datetime "created_at", null: false
@@ -97,8 +97,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_18_073230) do
     t.integer "status", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id"
-    t.index ["category_id"], name: "index_services_on_category_id"
     t.index ["provider_id"], name: "index_services_on_provider_id"
   end
 
@@ -137,6 +135,5 @@ ActiveRecord::Schema[7.0].define(version: 2022_05_18_073230) do
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "profiles", "users"
-  add_foreign_key "services", "categories"
   add_foreign_key "services", "users", column: "provider_id"
 end
