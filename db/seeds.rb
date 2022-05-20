@@ -14,7 +14,7 @@ user_a = User.create(email: 'a@farm.com', password: 'password')
 user_b = User.create(email: 'b@farm.com', password: 'password')
 user_c = User.create(email: 'c@farm.com', password: 'password')
 user_d = User.create(email: 'd@farm.com', password: 'password')
-user_d = User.create(email: 'e@farm.com', password: 'password')
+user_e = User.create(email: 'e@farm.com', password: 'password')
 
 Profile.create(
     first_name: "Admin",
@@ -29,6 +29,35 @@ Profile.create(
     username: "JBloe",
     user_id: 2
 ).avatar_image.attach(io: File.open("app/assets/images/seed_images/avatars/avatar1.png"), filename: "avatar1.png", content_type: "image/png")
+
+Profile.create(
+    first_name: "Jack",
+    last_name: "Black",
+    username: "JBlack",
+    user_id: 3
+).avatar_image.attach(io: File.open("app/assets/images/seed_images/avatars/avatar2.png"), filename: "avatar2.png", content_type: "image/png")
+
+Profile.create(
+    first_name: "Sally",
+    last_name: "Brown",
+    username: "JBrown",
+    user_id: 4
+).avatar_image.attach(io: File.open("app/assets/images/seed_images/avatars/avatar3.png"), filename: "avatar3.png", content_type: "image/png")
+
+Profile.create(
+    first_name: "Peter",
+    last_name: "Smith",
+    username: "PSmith",
+    user_id: 5
+).avatar_image.attach(io: File.open("app/assets/images/seed_images/avatars/avatar4.png"), filename: "avatar4.png", content_type: "image/png")
+
+Profile.create(
+    first_name: "Jess",
+    last_name: "Jones",
+    username: "JJones",
+    user_id: 6
+).avatar_image.attach(io: File.open("app/assets/images/seed_images/avatars/avatar5.png"), filename: "avatar5.png", content_type: "image/png")
+
 
 service_a_1 = Service.create(
     provider_id: user_a.id,
@@ -78,23 +107,78 @@ service_c_1 = Service.create(
     additional_charges: "none",
 ).cover_image.attach(io: File.open("app/assets/images/seed_images/airspray1.jpeg"), filename: "airspray1.jpeg", content_type: "image/jpg")
 
+service_d_1 = Service.create(
+    provider_id: user_d.id,
+    title: "Cotton Picking", 
+    about: "Round bail cotton picking services. Available across Southern Qld and Northern NSW.", 
+    address_line1: "102 Marshall St", 
+    city: "Goondiwindi", 
+    state: "QLD", 
+    postal_code: "4390", 
+    country: "Australia", 
+    lat: -28.547047, 
+    lng: 150.306902, 
+    price: 400, 
+    price_unit: "per hr", 
+    additional_charges: "none",
+).cover_image.attach(io: File.open("app/assets/images/seed_images/picker1.jpeg"), filename: "picker1.jpeg", content_type: "image/jpg")
+
+service_e_1 = Service.create(
+    provider_id: user_e.id,
+    title: "Cotton Planting", 
+    about: "Cotton planting with a double disc John Deere planter, with dynamic pressure adjustment. Available across Southern Qld and Northern NSW.", 
+    address_line1: "140 Maitland St", 
+    city: "Narrabri", 
+    state: "NSW", 
+    postal_code: "2390", 
+    country: "Australia", 
+    lat: -30.324978, 
+    lng: 149.782959, 
+    price: 350, 
+    price_unit: "per hr", 
+    additional_charges: "Seed can be provided",
+).cover_image.attach(io: File.open("app/assets/images/seed_images/cottonplant1.png"), filename: "cottonplant1.png", content_type: "image/png")
+
+service_a_2 = Service.create(
+    provider_id: user_a.id,
+    title: "Fruit Pickers", 
+    about: "Ten Person fruit picking team based in .", 
+    address_line1: "245 Banna Ave", 
+    city: "Griffith", 
+    state: "NSW", 
+    postal_code: "2680", 
+    country: "Australia", 
+    lat: -34.287923, 
+    lng: 146.046706, 
+    price: 35, 
+    price_unit: "per hr", 
+    additional_charges: "none",
+).cover_image.attach(io: File.open("app/assets/images/seed_images/fruitpick1.jpeg"), filename: "fruitpick1.jpeg", content_type: "image/jpg")
+
+
 Comment.create(
     content: "Great service!",
     service_id: 1,
-    user_id: 2
+    user_id: 3
 )
 
-# Comment.create(
-#     content: "Will use again!",
-#     service_id: 2,
-#     user_id: 3
-# )
+Comment.create(
+    content: "Will use again!",
+    service_id: 2,
+    user_id: 4
+)
 
-# Comment.create(
-#     content: "Very dependable!",
-#     service_id: 3,
-#     user_id: 4
-# )
+Comment.create(
+    content: "Very dependable!",
+    service_id: 3,
+    user_id: 5
+)
+
+Comment.create(
+    content: "Did a great job!",
+    service_id: 4,
+    user_id: 2
+)
 
 Conversation.create(sender_id: 2, receiver_id: 1)
 Conversation.create(sender_id: 2, receiver_id: 3)
