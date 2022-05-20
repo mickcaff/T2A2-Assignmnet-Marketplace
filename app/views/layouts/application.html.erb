@@ -79,9 +79,8 @@
                   To: "transform opacity-0 scale-95"
               -->
                 <div data-menu-target="desktopMenu" class="z-20 hidden origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg py-1 bg-white ring-1 ring-black ring-opacity-5 focus:outline-none" role="menu" aria-orientation="vertical" aria-labelledby="user-menu-button" tabindex="-1">
-                  <!-- Active: "bg-gray-100", Not Active: "" -->
-                  <%# <%= link_to 'Your Profile', profile_path(@profile), class: "block px-4 py-2 text-sm text-gray-700" %> %>
-                  <a href="" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
+                  <!-- <a href="#"class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>-->
+                  <p class="block px-4 py-2 text-sm text-gray-900" role="menuitem" tabindex="-1" id="user-menu-item-1">Logged in as <%= current_user.email %></p>
                   <a href="/conversations" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Messages</a>
                   <a href="/provider/services" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Services</a>
                   <%= button_to 'Logout', destroy_user_session_path, class: "block px-4 py-2 text-sm text-gray-700" , method: :delete, form: { data: { turbo_confirm: "Are you sure you want to log out?" } }  %>

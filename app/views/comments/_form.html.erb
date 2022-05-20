@@ -1,7 +1,8 @@
-<form action="<%= service_comments_path(service) %>" method="post">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-
-    <textarea name="comment[content]" cols="20" rows="6"></textarea>
-
-    <input type="submit" value="Submit">
+<form class="mt-2" action="<%= service_comments_path(service) %>" accept-charset="UTF-8" method="post">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" autocomplete="off">
+  <div class="field">
+    <textarea placeholder="Leave a review" name="comment[content]" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+  </div>
+  <input type="submit" value="Submit" class = "mt-2 font-medium text-base text-white px-4 py-1 border border-transparent rounded-md bg-teal-700 hover:bg-teal-800">
 </form>
+</div>

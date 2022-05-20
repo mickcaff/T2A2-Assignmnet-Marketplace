@@ -1,5 +1,24 @@
-<article>
-    <p> <%= comment.content %> </p>
-    <p> <%= comment.user.email %> </p>
-</article>
-<hr>
+<div class="mt-10 max-w-prose place-content-center">
+  <div class="flow-root">
+    <ul role="list" class="-mb-8">
+      <li>
+        <div class="relative pb-8">
+          <div class="relative flex items-start space-x-3">
+            <div class="relative">
+              <img class="h-12 w-12 rounded-full bg-gray-400 flex items-center justify-center ring-8 ring-white" src="https://images.unsplash.com/photo-1520785643438-5bf77931f493?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80" alt="">
+            </div>
+            <div class="min-w-0 flex-1">
+              <div>
+                <div class="text-sm inline-block">
+                  <a href="#" class="font-medium text-gray-900"><%= Profile.find(comment.user.id).first_name %> <%= Profile.find(comment.user.id).last_name %> </a>
+                </div>
+                <p class="inline-block mt-0.5 text-xs text-gray-500"><%= comment.created_at.strftime("%B %Y") %></p>
+              </div>
+              <div class="mt-1 text-sm text-gray-700">
+                <p><%= comment.content  %></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ul>
+    </div>

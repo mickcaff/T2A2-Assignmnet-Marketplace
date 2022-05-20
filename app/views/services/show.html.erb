@@ -11,10 +11,13 @@
   <%= @service.about %>
 </p>
 
-<p>
+<div class="mt-4" >
   <strong>Reviews:</strong>
   <%= render @service.comments.order(id: :desc) %>
+</div>
+
+<div class="mt-10" >
   <strong>Leave a review:</strong>
   <%= render partial: 'comments/form', locals: { service: @service } %>
-</p>
+</div>
 

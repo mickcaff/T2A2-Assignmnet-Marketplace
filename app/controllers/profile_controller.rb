@@ -14,21 +14,21 @@ class ProfileController < ApplicationController
     @profile = current_user.build_profile(profile_params)
     if @profile.save!
       flash[:success] = "Profile saved"
-      redirect_to root_path
+      redirect_to '/services'
     else
       flash[:error] = "Error"
-      redirect_to new
+      redirect_to '/services'
     end
   end
 
   
   def edit
-    @profile = current_user.profile
+    @profile = Profile.find(params[:id])
   end
 
   def update
     begin
-      @profile = current_user.profile
+      @profile = Profile.find(params[:id])
       @profile.update!(profile_params)
       redirect_to profile_path(@profile)
     rescue
