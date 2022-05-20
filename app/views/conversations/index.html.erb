@@ -1,19 +1,66 @@
-<h1>Inbox</h1>
-<ul>
-  <% @conversations.each do |conversation| %>
-    <li>
-      <%= link_to conversation.recipient(current_user).email, conversation_messages_path(conversation) %>
-      <% if !conversation.unread_message_count(current_user).zero? %>
-        (<%= conversation.unread_message_count(current_user) %>)
+<div class="max-w-prose">
+  <h1 class="mt-6 text-2xl mb-6">Inbox</h1>
+  <div class="bg-white shadow overflow-hidden sm:rounded-md">
+    <ul role="list" class="divide-y divide-gray-200">
+      <% @conversations.each do |conversation| %>
+        <li>
+          <a href="<%= conversation_messages_path(conversation) %>" class="block hover:bg-gray-50">
+            <div class="flex items-center px-4 py-4 sm:px-6">
+              <div class="min-w-0 flex-1 flex items-center">
+                <div class="flex-shrink-0">
+                  <img class="h-10 w-10 rounded-full bg-gray-400 flex items-center justify-center ring-8 ring-white" src="https://images.unsplash.com/photo-1520785643438-5bf77931f493?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80" alt="">
+                  <%# <%= cl_image_tag service.profile_image.key, cloud_name: ENV['CLOUDINARY_CLOUD_NAME'], class: "h-12 w-12 rounded-md" %>
+                </div>
+                <div class="min-w-0 flex-1 px-4 md:grid md:grid-cols-2 md:gap-4">
+                  <div>
+                    <p class="text-sm font-medium text-teal-600 truncate"><%= conversation.recipient(current_user).email %></p>
+                    <p class="mt-2 flex items-center text-sm text-gray-500">
+                      <!-- Heroicon name: solid/mail -->
+                      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
+                        <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd" />
+                      </svg>
+                      <span class="truncate"></span>
+                    </p>
+                  </div>
+                  <div class="md:block">
+                    <div>
+                      <p class="mt-2 flex items-center text-sm text-gray-500">
+                        Read Messages
+                      </p>
+                      <p class="mt-2 flex items-center text-sm text-gray-500">
+                        <!-- Heroicon name: solid/check-circle -->
+                        <% if !conversation.unread_message_count(current_user).zero? %>
+                          (<%= conversation.unread_message_count(current_user) %>)
+                        <% end %>
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                <!-- Heroicon name: solid/chevron-right -->
+                <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z" clip-rule="evenodd" />
+                </svg>
+              </div>
+            </div>
+          </a>
+        </li>
       <% end %>
-    </li>
-  <% end %>
-</ul>
-
-
-<h2>Users</h2>
-<ul>
-  <% @users.each do |user| %>
-    <li><%= link_to user.email, conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %></li>
-  <% end %>
-</ul>
+    </ul>
+  </div>
+  
+  <h2 class="mt-6 text-2xl mb-6">Users</h2>
+  <div class="">
+  <ul>
+    <% @users.each do |user| %>
+      <a href="#" class="hover:bg-gray-50">
+        <div>
+          <img class="inline-block h-10 w-10 rounded-full bg-gray-400 ring-8 ring-white" src="https://images.unsplash.com/photo-1520785643438-5bf77931f493?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80" alt="">
+          <li class="inline-block text-sm text-gray-500"><%= link_to user.email, conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %></li>
+        </div>
+      </a>
+    <% end %>
+  </ul>
+  </div>
+</div>

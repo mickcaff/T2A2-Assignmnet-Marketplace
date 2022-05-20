@@ -1,20 +1,53 @@
-<h1 class="font-bold text-4xl">Messages</h1>
-
-<ul>
-  <% @messages.each do |message| %>
-    <% if message.body %>
-      <li>
-        <h4><%= message.user.email %></h4>
-        <p><%= message.body %></p>
-      </li>
-    <% end %>
-  <% end %>
-</ul>
-
-<%= form_for [@conversation, @message] do |f| %>
-  <div class="field">
-    <%= f.text_area :body, placeholder: "Your message" %>
+<div class="max-w-prose place-content-center">
+  <a href="/conversations" class="mt-2 font-medium text-base text-white px-4 py-1 border border-transparent rounded-md bg-teal-700 hover:bg-teal-800">Back to conversations</a>
+  <h1 class="mt-6 text-2xl mb-6">Messages</h1>
+  <div class="flow-root">
+    <ul role="list" class="-mb-8">
+      <% @messages.each_with_index do |message, i| %>
+        <li>
+          <div class="relative pb-8">
+            <% if i < @messages.length - 1 %>
+              <span class="absolute top-5 left-5 -ml-px h-full w-0.5 bg-gray-200" aria-hidden="true"></span>
+            <% end %>
+            <div class="relative flex items-start space-x-3">
+              <div class="relative">
+                <img class="h-10 w-10 rounded-full bg-gray-400 flex items-center justify-center ring-8 ring-white" src="https://images.unsplash.com/photo-1520785643438-5bf77931f493?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80" alt="">
+                <span class="absolute -bottom-0.5 -right-1 bg-white rounded-tl px-0.5 py-px">
+                  <!-- Heroicon name: solid/chat-alt -->
+                  <svg class="h-5 w-5 text-gray-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                    <path fill-rule="evenodd" d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z" clip-rule="evenodd" />
+                  </svg>
+                </span>
+              </div>
+              <% if message.body %>
+                <div class="min-w-0 flex-1">
+                  <div>
+                    <div class="text-sm">
+                      <a href="#" class="font-medium text-gray-900"><%= message.user.email %></a>
+                    </div>
+                    <p class="mt-0.5 text-sm text-gray-500">Sent <%= time_ago_in_words(message.created_at) %> ago</p>
+                  </div>
+                  <div class="mt-2 text-sm text-gray-700">
+                    <p><%= message.body %></p>
+                  </div>
+                  <%# <div class="mt-2 text-sm text-gray-700">
+              <% if message&.notifications_as_message&.first&.read_at %>
+                  <%# <p>Read <%= time_ago_in_words(message&.notifications_as_message&.first&.read_at) %>
+                  <%# <% end %>
+                  <%# </div> %>
+                </div>
+              <% end %>
+            </div>
+          </div>
+        </li>
+      <% end %>
+    </ul>
   </div>
-
-  <%= f.submit "Send" %>
-<% end %>
+  <form class="mt-2" id="new_message" action="<%= conversation_messages_path %>" accept-charset="UTF-8" method="post">
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" autocomplete="off">
+    <div class="field">
+      <textarea placeholder="Add your message" name="message[body]" id="message_body" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md"></textarea>
+    </div>
+    <input type="submit" name="commit" value="Send" data-disable-with="Send" class = "mt-2 font-medium text-base text-white px-4 py-1 border border-transparent rounded-md bg-teal-700 hover:bg-teal-800">
+  </form>
+</div>
