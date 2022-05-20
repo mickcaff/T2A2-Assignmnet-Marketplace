@@ -8,5 +8,5 @@ class Service < ApplicationRecord
   scope :published, -> { where(status: :published) }
 
   has_one_attached :cover_image
-  has_many :comments
+  has_many :comments, dependent: :destroy
 end
