@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # get 'profile/edit'
+  # get 'profile/show'
   get 'messages/index'
   get 'services/index'
   get 'services/show'

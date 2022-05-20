@@ -3,7 +3,7 @@ class ProfileController < ApplicationController
   skip_before_action :verify_authenticity_token
 
   def show
-    @profile = current_user.profile
+    @profile = Profile.find(params[:id])
   end
 
   def new
