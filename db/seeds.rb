@@ -14,6 +14,21 @@ user_a = User.create(email: 'a@farm.com', password: 'password')
 user_b = User.create(email: 'b@farm.com', password: 'password')
 user_c = User.create(email: 'c@farm.com', password: 'password')
 user_d = User.create(email: 'd@farm.com', password: 'password')
+user_d = User.create(email: 'e@farm.com', password: 'password')
+
+Profile.create(
+    first_name: "Admin",
+    last_name: "Admin",
+    username: "Admin",
+    user_id: 1
+)
+
+Profile.create(
+    first_name: "Joe",
+    last_name: "Bloe",
+    username: "JBloe",
+    user_id: 2
+).avatar_image.attach(io: File.open("app/assets/images/seed_images/avatars/avatar1.png"), filename: "avatar1.png", content_type: "image/png")
 
 service_a_1 = Service.create(
     provider_id: user_a.id,
@@ -63,10 +78,43 @@ service_c_1 = Service.create(
     additional_charges: "none",
 ).cover_image.attach(io: File.open("app/assets/images/seed_images/airspray1.jpeg"), filename: "airspray1.jpeg", content_type: "image/jpg")
 
+Comment.create(
+    content: "Great service!",
+    service_id: 1,
+    user_id: 2
+)
+
+# Comment.create(
+#     content: "Will use again!",
+#     service_id: 2,
+#     user_id: 3
+# )
+
+# Comment.create(
+#     content: "Very dependable!",
+#     service_id: 3,
+#     user_id: 4
+# )
+
 Conversation.create(sender_id: 2, receiver_id: 1)
 Conversation.create(sender_id: 2, receiver_id: 3)
 Conversation.create(sender_id: 2, receiver_id: 4)
 Conversation.create(sender_id: 2, receiver_id: 5)
+Conversation.create(sender_id: 2, receiver_id: 6)
+
+Conversation.create(sender_id: 3, receiver_id: 1)
+Conversation.create(sender_id: 3, receiver_id: 4)
+Conversation.create(sender_id: 3, receiver_id: 5)
+Conversation.create(sender_id: 3, receiver_id: 6)
+
+Conversation.create(sender_id: 4, receiver_id: 1)
+Conversation.create(sender_id: 4, receiver_id: 5)
+Conversation.create(sender_id: 4, receiver_id: 6)
+
+Conversation.create(sender_id: 5, receiver_id: 1)
+Conversation.create(sender_id: 5, receiver_id: 6)
+
+Conversation.create(sender_id: 6, receiver_id: 1)
 
 
 # service_a_1.comments.create(
