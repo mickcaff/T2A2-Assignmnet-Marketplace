@@ -63,7 +63,10 @@ service_c_1 = Service.create(
     additional_charges: "none",
 ).cover_image.attach(io: File.open("app/assets/images/seed_images/airspray1.jpeg"), filename: "airspray1.jpeg", content_type: "image/jpg")
 
-
+Conversation.create(sender_id: 2, receiver_id: 1)
+Conversation.create(sender_id: 2, receiver_id: 3)
+Conversation.create(sender_id: 2, receiver_id: 4)
+Conversation.create(sender_id: 2, receiver_id: 5)
 
 
 # service_a_1.comments.create(
