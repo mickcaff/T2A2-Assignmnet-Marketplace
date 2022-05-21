@@ -8,7 +8,7 @@ Live website deployed on Heroku [link](https://shielded-escarpment-92547.herokua
 ![](/md_images/logo_full.svg)
 
 ### What is FarmPlace?
-Farmplace is a two sided marketplace which offers productivity improvements for **agricultural service providers** and **farmers**.
+FarmPlace is a two sided marketplace designed for **agricultural service providers** and **farmers**. 
 
 #### Why does the Australian agriculture industry need a services marketplace?
 
@@ -22,7 +22,7 @@ While farming can appear to be a slow process, there are critical windows of opp
 
 #### Who can post their services on FarmPlace?
 
-Farmplace is open to any contractors who offer sevices to farmers. This may include:
+FarmPlace is open to any contractors who offer sevices to farmers. This may include:
 - Planting
 - Harvesting
 - Spraying
@@ -131,8 +131,6 @@ Heroku | Deployment & Hosting
 Rails Gems | Use
 --- | ---
 Devise | Authentification
-Rolify |
-Pundit |
 Ransack | Frontend database search feature
 Pagy | Front end pagination
 rails-erd | Generates an ERD based on the active record models
