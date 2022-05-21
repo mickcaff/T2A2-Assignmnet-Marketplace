@@ -10,6 +10,7 @@ User.destroy_all
 Service.destroy_all
 
 admin = User.create(email: 'admin@farm.com', password: 'password')
+admin.add_role :admin
 user_a = User.create(email: 'a@farm.com', password: 'password')
 user_b = User.create(email: 'b@farm.com', password: 'password')
 user_c = User.create(email: 'c@farm.com', password: 'password')

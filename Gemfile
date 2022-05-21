@@ -86,3 +86,7 @@ gem "dotenv-rails", "~> 2.7"
 gem "pagy", "~> 5.10"
 
 gem "ransack", "~> 3.2"
+
+gem "rolify", "~> 6.0"
+
+gem "pundit", "~> 2.2"

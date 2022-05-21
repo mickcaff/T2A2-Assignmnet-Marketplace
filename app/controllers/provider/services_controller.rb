@@ -1,8 +1,9 @@
 class Provider::ServicesController < ApplicationController
-  
+  before_action :authenticate_user!
+  before_action :check_auth
+
   # These actions relate to the provider/services views -> 
   # namespacing was used to distinguish between views which just providers have access
-  
   def new
     @service = Service.new
   end
@@ -49,6 +50,11 @@ class Provider::ServicesController < ApplicationController
   end
 
   private
+
+  def check_auth
+    authorize Service
+  end
+
 
   def service_params
     return params.require(:service).permit(

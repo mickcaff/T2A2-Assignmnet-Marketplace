@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-    
+    before_action :authenticate_user!
     #Comments controller is used for the comments which are displayed on the individual listings page
     #Partials are also used to display the comments and comment forms
     

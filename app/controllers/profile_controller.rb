@@ -1,6 +1,5 @@
 class ProfileController < ApplicationController
-  #Remove before production
-  skip_before_action :verify_authenticity_token
+  before_action :authenticate_user!
 
   #Profile controller relates to profile model. Each User has_one Profile
   def show
