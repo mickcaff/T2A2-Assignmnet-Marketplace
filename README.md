@@ -3,7 +3,7 @@
 ![](/md_images/logo_full.svg)
 
 ### What is FarmPlace?
-Farmplace is a two sided marketplace which offers productivity improvements for agricultural service providers and farmers.
+Farmplace is a two sided marketplace which offers productivity improvements for **agricultural service providers** and **farmers**.
 
 #### Why does the Australian agriculture industry need a services marketplace?
 
@@ -31,6 +31,8 @@ Farmplace is open to any contractors who offer sevices to farmers. This may incl
 ### Functionality & Features
 
 
+
+
 ### Sitemap
 
 
@@ -49,6 +51,7 @@ Ruby | Object oriented programming language
 Rails | MVC Framework
 Stimulus.js | Front end Javascript framework
 
+### Third Party Services
 
 3rd Party Service | Use
 --- | ---
@@ -69,17 +72,25 @@ Pagy | Front end pagination
 rails-erd | Generates an ERD based on the active record models
 
 
-
 ### User Stories
 
 
 ### Wireframes
 
+#### Root Page - Opening Marketing
+![](/md_images/Root.png)
+#### Main Search Page
+![](/md_images/MainSearch.png)
+#### Sign Up Page
+![](/md_images/SignUp.png)
+#### Individual Service Show Page
+![](/md_images/ListingShow.png)
+#### Provider Services Index Page
+![](/md_images/ProviderServicesListings.png)
+#### User Inbox Page
+![](/md_images/MessageInbox.png)
 
 ### High Level Components
-
-
-### Third Party Services
 
 
 ### Entity Relationship Diagram
