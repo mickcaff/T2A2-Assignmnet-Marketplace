@@ -140,19 +140,58 @@ rails-erd | Generates an ERD based on the active record models
 
 # Database
 
-### High Level Components
-
-
-### Entity Relationship Diagram
-
 
 ### Project Models
 
+The database schema connsists of the following models:
+
+Model Name | Description 
+--- | --- 
+Users | Email & password
+Services | Title, provider, description, location details, pricing 
+Profiles | Name, username
+Conversations | Logs conversations between users
+Messages | Individual messages for each conversation
+Comments | Reviews for each service
+Active_storage_attachments | Cover images for services and profile images
 
 ### Database Relations
 
+These models have the following relationships with each other:
 
-### Database Schema Design
+Model 1 | Relationship | Model 2
+--- | --- | ---
+users | has_many | services
+users | has_many | comments
+users | has_one | profile
+services | belongs_to | user
+services | has_many | comments
+services | has_one_attached | active_storage_attachments (cover_image)
+profiles | belongs_to | user
+profiles | has_one_attached | active_storage_attachments (avatar_image)
+conversations | belongs_to | user (sender)
+conversations | belongs_to | user (receiver)
+conversations | has_many | messages
+messages | belongs_to | conversation
+messages | belongs_to | user
+comments | belongs_to | service
+comments | belongs_to | user
+
+### Database Schema Design & ERD
+
+The diagram below details the database schema design along with the relationships specified in the previous table.
+
+![ERD](/md_images/schema_erd.png)
+
+#### Discussion
+
+The above ERD attempts to create a normalized database structure to reduce data redundancy and improve efficiency. The database schema represents only what is necessary for a farm services marketplace MVP. The schema aims to have no duplication and has tried to use appropriate definitions of entities and attributes. Each model aims to serve a single purpose, with no duplication between tables.
+
+### High Level Components
+
+
+
+
 
 
 
