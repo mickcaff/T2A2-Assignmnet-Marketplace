@@ -148,6 +148,7 @@ The database schema connsists of the following models:
 Model Name | Purpose 
 --- | --- 
 Users | Email & password
+Roles | User role name
 Services | Title, provider, description, location details, pricing 
 Profiles | Name, username
 Conversations | Logs conversations between users
@@ -164,6 +165,8 @@ Model 1 | Relationship | Model 2
 users | has_many | services
 users | has_many | comments
 users | has_one | profile
+users | has_many | roles
+roles | has_many | users
 services | belongs_to | user
 services | has_many | comments
 services | has_one_attached | active_storage_attachments (cover_image)
