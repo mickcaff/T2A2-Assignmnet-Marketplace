@@ -74,6 +74,9 @@ rails-erd | Generates an ERD based on the active record models
 
 ### User Stories
 
+Detailed below are the planned user stories which cover the MVP needs of of the app. 
+
+![](/md_images/userstories.png)
 
 ### Wireframes
 
