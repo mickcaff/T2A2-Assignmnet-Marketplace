@@ -3,6 +3,8 @@ class ConversationsController < ApplicationController
 
     # Conversation controller is used to log the creation of conversations between to users in the converstion model
     # Index only shows conversations where a conversation has been created between two users
+    # I followed a medium tutorial to help code this controller - reference below
+    # Reference - https://medium.com/@danamulder/tutorial-create-a-simple-messaging-system-on-rails-d9b94b0fbca1
     def index
         @users = User.where.not(id: current_user.id)
         @conversations = Conversation.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)
