@@ -27,22 +27,81 @@ Farmplace is open to any contractors who offer sevices to farmers. This may incl
 - Fruit picking
 - And many more
 
-
 ### Functionality & Features
 
-
-
+Features of the web application include:
+- Sign up and create a profile
+- Post services
+- Search for services with keywords
+- Services are displayed on a map with markers
+- View each services details page
+- Leave reviews about each service
+- Send private messages to other users
 
 ### Sitemap
 
+![](/md_images/site_plan.png)
 
 ### Screenshots
 
+#### Front marketing page
+![](/md_images/page1.png)
 
-### Target Audience
+#### Main search page
+![](/md_images/page2.png)
+
+#### Individual listing page
+![](/md_images/page3.png)
+
+#### Service input form
+![](/md_images/page4.png)
+
+#### Message inbox
+![](/md_images/page5.png)
+
+#### Sign in page
+![](/md_images/page6.png)
 
 
-### Tech Stack
+
+
+# Planning
+
+### User Stories
+
+Detailed below are the planned user stories which cover the MVP needs of of the app. 
+
+![](/md_images/userstories.png)
+
+
+### Task Planning
+
+To plan and track all the tasks required for develpment, I used a Kanban board. A kanban board is a popular framework within agile development where work items are displayed in groups on a board which detail the exact state of every piece of work at any time.  
+
+Trello was used as the tool to create the Kanban board. As each task was planned it was added to the kanban board and then progressed through each stage (to-do, doing, code review and testing) before being checked off as done. 
+
+The kanban used to track the development of this app can be viewed [here.](https://trello.com/b/pC6XfVXL)
+
+![](/md_images/trello.png)
+
+### Wireframes
+
+Wireframes were created at the beginning of the project to plan the overall look and how the app would flow between pages. Below are wireframes for six of the main pages in three different sizes. 
+
+#### Root Page - Opening Marketing
+![](/md_images/Root.png)
+#### Main Search Page
+![](/md_images/MainSearch.png)
+#### Sign Up Page
+![](/md_images/SignUp.png)
+#### Individual Service Show Page
+![](/md_images/ListingShow.png)
+#### Provider Services Index Page
+![](/md_images/ProviderServicesListings.png)
+#### User Inbox Page
+![](/md_images/MessageInbox.png)
+
+# Tech Stack
 
 Tech Stack | Use
 --- | ---
@@ -72,26 +131,7 @@ Pagy | Front end pagination
 rails-erd | Generates an ERD based on the active record models
 
 
-### User Stories
-
-Detailed below are the planned user stories which cover the MVP needs of of the app. 
-
-![](/md_images/userstories.png)
-
-### Wireframes
-
-#### Root Page - Opening Marketing
-![](/md_images/Root.png)
-#### Main Search Page
-![](/md_images/MainSearch.png)
-#### Sign Up Page
-![](/md_images/SignUp.png)
-#### Individual Service Show Page
-![](/md_images/ListingShow.png)
-#### Provider Services Index Page
-![](/md_images/ProviderServicesListings.png)
-#### User Inbox Page
-![](/md_images/MessageInbox.png)
+# Database
 
 ### High Level Components
 
@@ -107,8 +147,6 @@ Detailed below are the planned user stories which cover the MVP needs of of the 
 
 ### Database Schema Design
 
-
-### Trello
 
 
 ## GitHub Repo
