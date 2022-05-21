@@ -122,9 +122,6 @@ Stimulus.js | Front end Javascript framework
 3rd Party Service | Use
 --- | ---
 GitHub | Software version control cloud hosting
-Devise | Authentification
-Rolify |
-Pundit |
 Cloudinary | Cloud file storage
 Google Maps API | Geocoding addresses, embedded maps
 Heroku | Deployment & Hosting
@@ -133,6 +130,9 @@ Heroku | Deployment & Hosting
 
 Rails Gems | Use
 --- | ---
+Devise | Authentification
+Rolify |
+Pundit |
 Ransack | Frontend database search feature
 Pagy | Front end pagination
 rails-erd | Generates an ERD based on the active record models
@@ -141,11 +141,11 @@ rails-erd | Generates an ERD based on the active record models
 # Database
 
 
-### Project Models
+### High Level Components - Project Models
 
 The database schema connsists of the following models:
 
-Model Name | Description 
+Model Name | Purpose 
 --- | --- 
 Users | Email & password
 Services | Title, provider, description, location details, pricing 
@@ -186,12 +186,4 @@ The diagram below details the database schema design along with the relationship
 #### Discussion
 
 The above ERD attempts to create a normalized database structure to reduce data redundancy and improve efficiency. The database schema represents only what is necessary for a farm services marketplace MVP. The schema aims to have no duplication and has tried to use appropriate definitions of entities and attributes. Each model aims to serve a single purpose, with no duplication between tables.
-
-### High Level Components
-
-
-
-
-
-
 
