@@ -1,3 +1,8 @@
+#### GitHub & Heroku Links
+GitHub Repo [link](https://github.com/mickcaff/T2A2-Assignmnet-Marketplace)
+
+Live website deployed on Heroku [link](https://shielded-escarpment-92547.herokuapp.com/)
+
 # FarmPlace - Farm Services Marketplace
 
 ![](/md_images/logo_full.svg)
@@ -38,9 +43,6 @@ Features of the web application include:
 - Leave reviews about each service
 - Send private messages to other users
 
-### Sitemap
-
-![](/md_images/site_plan.png)
 
 ### Screenshots
 
@@ -69,7 +71,7 @@ Features of the web application include:
 
 ### User Stories
 
-Detailed below are the planned user stories which cover the MVP needs of of the app. 
+Detailed below are the planned user stories which cover the MVP needs for the app. 
 
 ![](/md_images/userstories.png)
 
@@ -83,6 +85,11 @@ Trello was used as the tool to create the Kanban board. As each task was planned
 The kanban used to track the development of this app can be viewed [here.](https://trello.com/b/pC6XfVXL)
 
 ![](/md_images/trello.png)
+
+### Sitemap
+
+![](/md_images/site_plan.png)
+
 
 ### Wireframes
 
@@ -149,31 +156,3 @@ rails-erd | Generates an ERD based on the active record models
 
 
 
-## GitHub Repo
-
-
-
-# README
-
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
