@@ -12,10 +12,15 @@ Service.destroy_all
 admin = User.create(email: 'admin@farm.com', password: 'password')
 admin.add_role :admin
 user_a = User.create(email: 'a@farm.com', password: 'password')
+user_a.add_role :provider
 user_b = User.create(email: 'b@farm.com', password: 'password')
+user_b.add_role :provider
 user_c = User.create(email: 'c@farm.com', password: 'password')
+user_c.add_role :provider
 user_d = User.create(email: 'd@farm.com', password: 'password')
+user_d.add_role :provider
 user_e = User.create(email: 'e@farm.com', password: 'password')
+user_e.add_role :provider
 
 Profile.create(
     first_name: "Admin",
@@ -156,6 +161,53 @@ service_a_2 = Service.create(
     additional_charges: "none",
 ).cover_image.attach(io: File.open("app/assets/images/seed_images/fruitpick1.jpeg"), filename: "fruitpick1.jpeg", content_type: "image/jpg")
 
+service_b_2 = Service.create(
+    provider_id: user_b.id,
+    title: "Grain Transportation", 
+    about: "Grain transport from any location in the WA wheatbelt.", 
+    address_line1: "23 Andrew St", 
+    city: "Esperance", 
+    state: "WA", 
+    postal_code: "6450", 
+    country: "Australia", 
+    lat: -33.861352, 
+    lng: 121.891616, 
+    price: 4.5, 
+    price_unit: "per km", 
+    additional_charges: "none",
+).cover_image.attach(io: File.open("app/assets/images/seed_images/graintransport.png"), filename: "graintransport.png", content_type: "image/png")
+
+service_c_2 = Service.create(
+    provider_id: user_c.id,
+    title: "Apple Picker", 
+    about: "Mechanical apple picker and team based in Batlow, NSW.", 
+    address_line1: "5 Mayday Rd", 
+    city: "Batlow", 
+    state: "NSW", 
+    postal_code: "2730", 
+    country: "Australia", 
+    lat: -35.520135, 
+    lng: 148.145700, 
+    price: 4.5, 
+    price_unit: "per km", 
+    additional_charges: "none",
+).cover_image.attach(io: File.open("app/assets/images/seed_images/apple1.png"), filename: "apple1.png", content_type: "image/png")
+
+service_d_2 = Service.create(
+    provider_id: user_d.id,
+    title: "Grape Harvester", 
+    about: "Grape harvester in the Clare, SA region.", 
+    address_line1: "253 Main N Rd", 
+    city: "Clare", 
+    state: "SA", 
+    postal_code: "5453", 
+    country: "Australia", 
+    lat: -33.833500, 
+    lng: 138.612014, 
+    price: 4.5, 
+    price_unit: "per km", 
+    additional_charges: "none",
+).cover_image.attach(io: File.open("app/assets/images/seed_images/grape1.png"), filename: "grape1.png", content_type: "image/png")
 
 Comment.create(
     content: "Great service!",
