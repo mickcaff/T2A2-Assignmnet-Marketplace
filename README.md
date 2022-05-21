@@ -131,6 +131,8 @@ Heroku | Deployment & Hosting
 Rails Gems | Use
 --- | ---
 Devise | Authentification
+Rolify | User roles management
+Pundit | User authorization
 Ransack | Frontend database search feature
 Pagy | Front end pagination
 rails-erd | Generates an ERD based on the active record models
