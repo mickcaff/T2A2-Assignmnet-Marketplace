@@ -1,3 +1,8 @@
+// All of this code relates to the geocoding of addresses and was taken from the Google Developer Guides
+// It is used in the search form when creating a service
+// When the address is entered, the Google API initiates autocomplete and then geocodes the address into a latitude and longitude
+// This lat and lng is then used in both the listing_map_controller.js and service_map_controller.js to plot a marker on the embedded google map
+
 import {Controller} from '@hotwired/stimulus'
 
 export default class extends Controller {

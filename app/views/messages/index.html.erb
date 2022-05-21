@@ -1,3 +1,5 @@
+<%# Code displays the message details for each conversatin between users %>
+<%# TAILWIND STYLING DIVS AND CLASSES %>
 <div class="max-w-prose place-content-center">
   <a href="/conversations" class="mt-2 font-medium text-base text-white px-4 py-1 border border-transparent rounded-md bg-teal-700 hover:bg-teal-800">Back to conversations</a>
   <h1 class="mt-6 text-2xl mb-6">Messages</h1>
@@ -30,11 +32,6 @@
                   <div class="mt-2 text-sm text-gray-700">
                     <p><%= message.body %></p>
                   </div>
-                  <%# <div class="mt-2 text-sm text-gray-700">
-              <% if message&.notifications_as_message&.first&.read_at %>
-                  <%# <p>Read <%= time_ago_in_words(message&.notifications_as_message&.first&.read_at) %>
-                  <%# <% end %>
-                  <%# </div> %>
                 </div>
               <% end %>
             </div>

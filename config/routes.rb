@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-  # get 'profile/show'
+
   get 'messages/index'
   get 'services/index'
   get 'services/show'
@@ -25,6 +25,7 @@ Rails.application.routes.draw do
   
   resources :profile
   
+  # Devise routes were redirected after sign up, sign in, and log out
   devise_for :users, controllers: {
     registrations: 'users/registrations',
     sessions: 'users/sessions'

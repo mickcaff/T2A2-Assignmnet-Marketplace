@@ -1,6 +1,8 @@
 class ConversationsController < ApplicationController
     # before_action :authenticate_user!
 
+    # Conversation controller is used to log the creation of conversations between to users in the converstion model
+    # Index only shows conversations where a conversation has been created between two users
     def index
         @users = User.where.not(id: current_user.id)
         @conversations = Conversation.where("sender_id = ? OR receiver_id = ?", current_user.id, current_user.id)

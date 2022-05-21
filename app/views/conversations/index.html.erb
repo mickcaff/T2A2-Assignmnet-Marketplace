@@ -1,3 +1,5 @@
+<%# CODE RELATES TO THE CONVERSATIONS INDEX PAGE WHICH LISTS EACH USERS CONVERSATIONS %>
+<%# TAILWIND STYLING DIVS AND CLASSES %>
 <div class="max-w-prose">
   <h1 class="mt-6 text-2xl mb-6">Inbox</h1>
   <div class="bg-white shadow overflow-hidden sm:rounded-md">
@@ -49,18 +51,17 @@
       <% end %>
     </ul>
   </div>
-  
   <h2 class="mt-6 text-2xl mb-6">Users</h2>
   <div class="">
-  <ul>
-    <% @users.each do |user| %>
-      <a href="#" class="hover:bg-gray-50">
-        <div>
-          <img class="inline-block h-10 w-10 rounded-full bg-gray-400 ring-8 ring-white" src="https://images.unsplash.com/photo-1520785643438-5bf77931f493?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80" alt="">
-          <li class="inline-block text-sm text-gray-500"><%= button_to user.email, conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %></li>
-        </div>
-      </a>
-    <% end %>
-  </ul>
+    <ul>
+      <% @users.each do |user| %>
+        <a href="#" class="hover:bg-gray-50">
+          <div>
+            <img class="inline-block h-10 w-10 rounded-full bg-gray-400 ring-8 ring-white" src="https://images.unsplash.com/photo-1520785643438-5bf77931f493?ixlib=rb-=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=8&w=256&h=256&q=80" alt="">
+            <li class="inline-block text-sm text-gray-500"><%= button_to user.email, conversations_path(sender_id: current_user.id, receiver_id: user.id), method: :post %></li>
+          </div>
+        </a>
+      <% end %>
+    </ul>
   </div>
 </div>

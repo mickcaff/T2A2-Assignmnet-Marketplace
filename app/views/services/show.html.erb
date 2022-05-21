@@ -1,3 +1,7 @@
+<%# Code displays the individual services show page %>
+<%# With reviews section at the bottom%>
+<%# cloudinary image tag used %>
+<%# TAILWIND STYLING DIVS AND CLASSES %>
 <div class="w-screen h-auto flex items-center flex-col mb-10">
   <div class="w-4/5">
     <div class="bg-white shadow overflow-hidden sm:rounded-lg">
@@ -10,9 +14,9 @@
         <p class="mt-4 mb-4 max-w-2xl text-sm text-gray-500">$<%= @service.price %>, <%= @service.price_unit %></p>
         <p class="mt-4 mb-10 max-w-2xl text-sm text-gray-500"><%= @service.about %></p>
         <% if user_signed_in? %>
-        <a href="/conversations" class="font-medium text-base text-white px-4 py-1 border border-transparent rounded-md bg-teal-700 hover:bg-teal-800" role="menuitem" tabindex="-1" id="user-menu-item-2">Message</a>
+          <a href="/conversations" class="font-medium text-base text-white px-4 py-1 border border-transparent rounded-md bg-teal-700 hover:bg-teal-800" role="menuitem" tabindex="-1" id="user-menu-item-2">Message</a>
         <% else %>
-        <a href="/users/sign_in" class="font-medium text-base text-white px-4 py-1 border border-transparent rounded-md bg-teal-700 hover:bg-teal-800" role="menuitem" tabindex="-1" id="user-menu-item-2">Message</a>
+          <a href="/users/sign_in" class="font-medium text-base text-white px-4 py-1 border border-transparent rounded-md bg-teal-700 hover:bg-teal-800" role="menuitem" tabindex="-1" id="user-menu-item-2">Message</a>
         <% end %>
       </div>
       <div class="border-t border-gray-200">
@@ -28,18 +32,15 @@
         </div>
       </dl>
     </div>
-    </div>
-
-    <%# REVIEW SECTION %>
-
-    <div class="mt-4 w-4/5" >
-      <strong>Reviews:</strong>
-      <%= render @service.comments.order(id: :desc) %>
-    </div>
-
-    <div class="w-1/2 mt-10" >
-      <strong>Leave a review:</strong>
-      <%= render partial: 'comments/form', locals: { service: @service } %>
-    </div>
   </div>
+  <%# COMMENTS/REVIEW INPUT SECTION %>
+  <div class="mt-4 w-4/5" >
+    <strong>Reviews:</strong>
+    <%= render @service.comments.order(id: :desc) %>
+  </div>
+  <div class="w-1/2 mt-10" >
+    <strong>Leave a review:</strong>
+    <%= render partial: 'comments/form', locals: { service: @service } %>
+  </div>
+</div>
 </div>

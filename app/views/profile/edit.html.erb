@@ -1,31 +1,29 @@
+<%# Code displays the profile edit page %>
+<%# TAILWIND STYLING DIVS AND CLASSES %>
 <h1 class="text-3xl">Edit your profile</h1>
-
 <form data-turbo="false" enctype="multipart/form-data" action="<%= profile_path(@profile) %>" accept-charset="UTF-8" method="post" class="space-y-8 divide-y divide-gray-200">
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" autocomplete="off">
-    <input type="hidden" name="_method" value="PUT">
-
-    <div class="sm:col-span-6">
-        <label for="profile_first_name" class="block m-1 text-sm font-medium text-gray-700">First Name</label>
-        <input type="text" name="profile[first_name]" id="profile_first_name" value="<%= @profile.first_name %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-    </div>
-    <div class="sm:col-span-6">
-        <label for="profile_last_name" class="block m-1 text-sm font-medium text-gray-700">Last Name</label>
-        <input type="text" name="profile[last_name]" id="profile_last_name" value="<%= @profile.last_name %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-    </div>
-    <div class="sm:col-span-6">
-        <label for="profile_username" class="block m-1 text-sm font-medium text-gray-700">Username</label>
-        <input type="text" name="profile[username]" id="profile_username" value="<%= @profile.username %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-    </div>
-
-    <% if @profile.avatar_image.attached? %>
-        <fieldset class="mb-2">
-            <%= cl_image_tag(@profile.avatar_image.key, transformation: ["media_lib_thumb"], cloud_name: ENV['CLOUDINARY_CLOUD_NAME']) %>
-        </fieldset>
-    <% end %>
-
-    <div class="sm:col-span-6">
-        <label for="profile_avatar_image" class="block m-1 text-sm font-medium text-gray-700">Cover image</label>
-        <input type="file" name="profile[avatar_image]" id="profile_avatar_image" class = "text-sm">
-    </div>
-    <input type="submit" value="Update profile" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-teal-700 hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-600">
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>" autocomplete="off">
+  <input type="hidden" name="_method" value="PUT">
+  <div class="sm:col-span-6">
+    <label for="profile_first_name" class="block m-1 text-sm font-medium text-gray-700">First Name</label>
+    <input type="text" name="profile[first_name]" id="profile_first_name" value="<%= @profile.first_name %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+  </div>
+  <div class="sm:col-span-6">
+    <label for="profile_last_name" class="block m-1 text-sm font-medium text-gray-700">Last Name</label>
+    <input type="text" name="profile[last_name]" id="profile_last_name" value="<%= @profile.last_name %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+  </div>
+  <div class="sm:col-span-6">
+    <label for="profile_username" class="block m-1 text-sm font-medium text-gray-700">Username</label>
+    <input type="text" name="profile[username]" id="profile_username" value="<%= @profile.username %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+  </div>
+  <% if @profile.avatar_image.attached? %>
+    <fieldset class="mb-2">
+      <%= cl_image_tag(@profile.avatar_image.key, transformation: ["media_lib_thumb"], cloud_name: ENV['CLOUDINARY_CLOUD_NAME']) %>
+    </fieldset>
+  <% end %>
+  <div class="sm:col-span-6">
+    <label for="profile_avatar_image" class="block m-1 text-sm font-medium text-gray-700">Cover image</label>
+    <input type="file" name="profile[avatar_image]" id="profile_avatar_image" class = "text-sm">
+  </div>
+  <input type="submit" value="Update profile" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-teal-700 hover:bg-teal-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-teal-600">
 </form>

@@ -1,3 +1,5 @@
+// REQUIRED FOR THE TAILWIND AVATAR MENU DROP DOWN
+
 import {Controller} from '@hotwired/stimulus'
 
 //CONNECTS TO NAVBAR CONTROLLER

@@ -1,3 +1,5 @@
+// The code below was taken from the Google Developer Docs and used as a reference to create service_map_controller.js
+
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="listing-map"

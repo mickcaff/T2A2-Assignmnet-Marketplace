@@ -1,4 +1,8 @@
 class CommentsController < ApplicationController
+    
+    #Comments controller is used for the comments which are displayed on the individual listings page
+    #Partials are also used to display the comments and comment forms
+    
     def create
         @comment = current_user.comments.new(comment_params)
         @comment.save!

@@ -1,68 +1,57 @@
+<%# Code displays the edit services details form page %>
+<%# TAILWIND STYLING DIVS AND CLASSES %>
 <h1 class="text-2xl mb-4 font-bold">Edit <%= @service.title%> </h1>
-
 <form data-turbo="false" enctype="multipart/form-data" action="<%= provider_service_path(@service) %>" accept-charset="UTF-8" method="post" class="space-y-8 divide-y divide-gray-200">
-    
-    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
-    <input type="hidden" name="_method" value="PUT">
-
-    <div class="inline-block sm:col-span-6">
-        <label for="status" class="block m-1 text-sm font-medium text-gray-700">Status</label>
-        <select name="service[status]" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-            <% Service.statuses.keys.each do |status| %>
-                <option <%= 'selected' if @service.status == status %>><%= status %></option>
-            <% end %>
-        </select>
+  <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+  <input type="hidden" name="_method" value="PUT">
+  <div class="inline-block sm:col-span-6">
+    <label for="status" class="block m-1 text-sm font-medium text-gray-700">Status</label>
+    <select name="service[status]" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+      <% Service.statuses.keys.each do |status| %>
+        <option <%= 'selected' if @service.status == status %>><%= status %></option>
+        <% end %>
+      </select>
     </div>
-    
     <div class="sm:col-span-6">
-        <label for="service_title" class="block m-1 text-sm font-medium text-gray-700">Title</label>
-        <input type="text" name="service[title]" id="service_title" value="<%= @service.title %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+      <label for="service_title" class="block m-1 text-sm font-medium text-gray-700">Title</label>
+      <input type="text" name="service[title]" id="service_title" value="<%= @service.title %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
     </div>
-
     <div class="sm:col-span-6">
-        <label for="service_about" class="block m-1 text-sm font-medium text-gray-700">About</label>
-        <textarea id="service_about" name="service[about]" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md"><%= @service.about %></textarea>
+      <label for="service_about" class="block m-1 text-sm font-medium text-gray-700">About</label>
+      <textarea id="service_about" name="service[about]" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border border-gray-300 rounded-md"><%= @service.about %></textarea>
     </div>
-
     <div class="inline-block sm:col-span-6">
-        <label for="service_price" class="block m-1 text-sm font-medium text-gray-700">Price</label>
-        <input type="number" name="service[price]" id="service_price" value="<%= @service.price %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+      <label for="service_price" class="block m-1 text-sm font-medium text-gray-700">Price</label>
+      <input type="number" name="service[price]" id="service_price" value="<%= @service.price %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
     </div>
-
     <div class="inline-block sm:col-span-6">
-        <label for="service_price_unit" class="block m-1 text-sm font-medium text-gray-700">Price Unit</label>
-        <input type="text" name="service[price_unit]" id="service_price_unit" value="<%= @service.price_unit %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+      <label for="service_price_unit" class="block m-1 text-sm font-medium text-gray-700">Price Unit</label>
+      <input type="text" name="service[price_unit]" id="service_price_unit" value="<%= @service.price_unit %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
     </div>
-
     <div class="inline-block sm:col-span-6 w-3/5">
-        <label for="service_additional_charges" class="block m-1 text-sm font-medium text-gray-700">Additional Charges</label>
-        <input type="text" name="service[additional_charges]" id="service_additional_charges" value="<%= @service.additional_charges %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+      <label for="service_additional_charges" class="block m-1 text-sm font-medium text-gray-700">Additional Charges</label>
+      <input type="text" name="service[additional_charges]" id="service_additional_charges" value="<%= @service.additional_charges %>" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
     </div>
-
     <div data-controller="address" data-action="map-loaded@window->address#initGoogle" class="sm:col-span-6">
-        <label for="service_address" class="block m-1 text-sm font-medium text-gray-700">Address</label>
-        <input type="text" id="service_addresses" data-address-target="input" autocomplete="off" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
-
-        <input type="hidden" name="service[address_line1]" data-address-target="line1">
-        <input type="hidden" name="service[address_line2]" data-address-target="line2">
-        <input type="hidden" name="service[city]" data-address-target="city">
-        <input type="hidden" name="service[state]" data-address-target="state">
-        <input type="hidden" name="service[postal_code]" data-address-target="postal_code">
-        <input type="hidden" name="service[country]" data-address-target="country">
-        <input type="hidden" name="service[lat]" data-address-target="lat">
-        <input type="hidden" name="service[lng]" data-address-target="lng">
+      <label for="service_address" class="block m-1 text-sm font-medium text-gray-700">Address</label>
+      <input type="text" id="service_addresses" data-address-target="input" autocomplete="off" class="shadow-sm focus:ring-indigo-500 focus:border-indigo-500 block w-full sm:text-sm border-gray-300 rounded-md">
+      <input type="hidden" name="service[address_line1]" data-address-target="line1">
+      <input type="hidden" name="service[address_line2]" data-address-target="line2">
+      <input type="hidden" name="service[city]" data-address-target="city">
+      <input type="hidden" name="service[state]" data-address-target="state">
+      <input type="hidden" name="service[postal_code]" data-address-target="postal_code">
+      <input type="hidden" name="service[country]" data-address-target="country">
+      <input type="hidden" name="service[lat]" data-address-target="lat">
+      <input type="hidden" name="service[lng]" data-address-target="lng">
     </div>
-
     <% if @service.cover_image.attached? %>
-        <fieldset class="mb-2">
-            <%= cl_image_tag(@service.cover_image.key, transformation: ["media_lib_thumb"], cloud_name: ENV['CLOUDINARY_CLOUD_NAME']) %>
-        </fieldset>
+      <fieldset class="mb-2">
+        <%= cl_image_tag(@service.cover_image.key, transformation: ["media_lib_thumb"], cloud_name: ENV['CLOUDINARY_CLOUD_NAME']) %>
+      </fieldset>
     <% end %>
-
     <div class="sm:col-span-6">
-        <label for="service_cover_image" class="block text-sm font-medium text-gray-700">Cover image</label>
-        <input type="file" name="service[cover_image]" id="service_cover_image">
+      <label for="service_cover_image" class="block text-sm font-medium text-gray-700">Cover image</label>
+      <input type="file" name="service[cover_image]" id="service_cover_image">
     </div>
-
     <input type="submit" value="Update service" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
-</form>
+  </form>

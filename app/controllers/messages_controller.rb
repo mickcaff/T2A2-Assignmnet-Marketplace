@@ -1,6 +1,7 @@
 class MessagesController < ApplicationController
   # before_action :authenticate_user!
   
+  # Messages controller relates to the messages which relate to a particular conversation
   before_action do
     @conversation = Conversation.find(params[:conversation_id])
   end

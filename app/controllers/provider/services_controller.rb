@@ -1,5 +1,8 @@
 class Provider::ServicesController < ApplicationController
   
+  # These actions relate to the provider/services views -> 
+  # namespacing was used to distinguish between views which just providers have access
+  
   def new
     @service = Service.new
   end

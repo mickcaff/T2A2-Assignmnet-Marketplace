@@ -1,40 +1,31 @@
-<%# <%= search_form_for @q do |f| %>
-
-  <%# # Search if the name field contains... %>
-
-  <%# <%= f.search_field :title_or_about_cont %>
-<%# 
-  <%= f.submit %>
-<%# <% end %> 
-
-
-
+<%# Code displays the main search page - which displays the index of services index and embedded google map%>
+<%# The Div links to the service_map_controller.js to implement the google map - all code used from the Google Developer Documentation %>
+<%# Pagy pagination gem also used %>
+<%# cloudinary image tag used %>
+<%# TAILWIND STYLING DIVS AND CLASSES %>
 <h1 class="font-bold text-lg inline-block">Services</h1>
 <div class="ml-4 inline-block">
   <%== pagy_nav(@pagy) %>
 </div>
 <div data-controller="service-map" data-action="map-loaded@window->address#initGoogle" class="grid grid-cols-2 h-screen">
-
   <ul role="list" data-service-map-target="services" class="m-4 grid gap-x-4 gap-y-8 sm:grid-cols-3 sm:gap-x-6 lg:grid-cols-3 xl:gap-x-3">
     <% @services.each do |service| %>
-    <li class="relative" data-lat="<%= service.lat %>" data-title="<%= service.title %>" data-lng="<%= service.lng %>">
-      <a href="<%= service_path(service) %>" class="group block rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
-        <%= cl_image_tag service.cover_image.key, cloud_name: ENV['CLOUDINARY_CLOUD_NAME'], class: "bg-cover rounded-md" %>
-
-        <button type="button" class="absolute inset-0 focus:outline-none">
-          <span class="sr-only">View details for <%= service.title %></span>
-        </button>
-      </a>
-      <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none"><%= service.title %></p>
-      <p class="block text-sm font-medium text-gray-500 pointer-events-none"><%= service.city %>, <%= service.state %></p>
-      <p class="block text-sm font-medium text-gray-500 pointer-events-none underline">$<%= service.price %> <%= service.price_unit %></p>
-    </li>
+      <li class="relative" data-lat="<%= service.lat %>" data-title="<%= service.title %>" data-lng="<%= service.lng %>">
+        <a href="<%= service_path(service) %>" class="group block rounded-lg bg-gray-100 focus-within:ring-2 focus-within:ring-offset-2 focus-within:ring-offset-gray-100 focus-within:ring-indigo-500 overflow-hidden">
+          <%= cl_image_tag service.cover_image.key, cloud_name: ENV['CLOUDINARY_CLOUD_NAME'], class: "bg-cover rounded-md" %>
+          <button type="button" class="absolute inset-0 focus:outline-none">
+            <span class="sr-only">View details for <%= service.title %></span>
+          </button>
+        </a>
+        <p class="mt-2 block text-sm font-medium text-gray-900 truncate pointer-events-none"><%= service.title %></p>
+        <p class="block text-sm font-medium text-gray-500 pointer-events-none"><%= service.city %>, <%= service.state %></p>
+        <p class="block text-sm font-medium text-gray-500 pointer-events-none underline">$<%= service.price %> <%= service.price_unit %></p>
+      </li>
     <% end %>
   </ul>
   <div data-service-map-target="map" class="col-span-1 h-full rounded-md">
   </div>
 </div>
-
 <div class="mt-4">
   <%== pagy_nav(@pagy) %>
 </div>

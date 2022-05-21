@@ -1,3 +1,6 @@
+// The code below was taken from the Google Developer Docs
+// It is used to plot the markers of each of the services listings on the embedded map, and control the initial view of the map
+
 import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="service-map"
