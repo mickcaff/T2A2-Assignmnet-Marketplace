@@ -91,4 +91,7 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Added from S.Smith instructions on Discord for Railway deployment
+  config.hosts << "https://t2a2-assignmnet-marketplace-production.up.railway.app/"
 end
