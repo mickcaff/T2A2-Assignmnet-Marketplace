@@ -186,7 +186,9 @@ The diagram below details the database schema design along with the relationship
 
 ![ERD](/md_images/schema_erd.png)
 
+
 #### Discussion
 
 The above ERD attempts to create a normalized database structure to reduce data redundancy and improve efficiency. The database schema represents only what is necessary for a farm services marketplace MVP. The schema aims to have no duplication and has tried to use appropriate definitions of entities and attributes. Each model aims to serve a single purpose, with no duplication between tables.
+
 
